@@ -7,22 +7,26 @@
 <style>html{color-scheme:light}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Agile Elite</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <style>
 /* Layout: sticky top bar, three hash-routed pages, each a narrow editorial column with wide bands for proof points */
 :root{
-  --bg:#f4f6f8; --surface:#ffffff; --fg:#0f1a24; --muted:#56657a; --line:#d6dde6;
-  --accent:#1f5eff; --accent-ink:#ffffff; --chip:#e6edff;
-  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
-  --body:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --bg:#ffffff; --bg-soft:#f4f7fb; --surface:#ffffff; --fg:#172b4d; --muted:#44546f; --line:#dfe3ea;
+  --accent:#0c66e4; --accent-ink:#ffffff; --accent-soft:#e9f2ff; --chip:#e9f2ff;
+  --cyan:#6cc3e0; --cyan-d:#2d9cc7; --yellow:#f5cd47; --yellow-d:#d9a91c; --navy:#1d3a6e; --navy-d:#12284f;
+  --plat-t:#c9ecf7; --plat-l:#8fd3ea; --plat-r:#5fbcdc; --shadow:0 1px 2px rgba(9,30,66,.08),0 8px 24px rgba(9,30,66,.08);
+  --display:"Plus Jakarta Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0b121a; --surface:#121c27; --fg:#e8eef5; --muted:#93a2b5; --line:#24323f;
-  --accent:#6f97ff; --accent-ink:#0b121a; --chip:#1a2a45; color-scheme:dark}}
+  --bg:#101214; --bg-soft:#161a1d; --surface:#1d2125; --fg:#dee4ea; --muted:#9fadbc; --line:#2c333a;
+  --accent:#579dff; --accent-ink:#101214; --accent-soft:#092957; --chip:#0b2a52;
+  --plat-t:#1c4a5c; --plat-l:#16394a; --plat-r:#112d3a; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35); color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0b121a; --surface:#121c27; --fg:#e8eef5; --muted:#93a2b5; --line:#24323f;
-  --accent:#6f97ff; --accent-ink:#0b121a; --chip:#1a2a45; color-scheme:dark}
+  --bg:#101214; --bg-soft:#161a1d; --surface:#1d2125; --fg:#dee4ea; --muted:#9fadbc; --line:#2c333a;
+  --accent:#579dff; --accent-ink:#101214; --accent-soft:#092957; --chip:#0b2a52;
+  --plat-t:#1c4a5c; --plat-l:#16394a; --plat-r:#112d3a; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35); color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font:16px/1.6 var(--body)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
@@ -109,12 +113,71 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 footer .wrap{padding-block:28px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .page[hidden]{display:none!important}
 @media (prefers-reduced-motion:no-preference){.page{animation:in .35s ease both}@keyframes in{from{transform:translateY(6px)}to{transform:none}}}
+
+/* Restyle: bright, airy, confident blue; white cards with soft shadows; isometric illustrations */
+body{font-size:16px;line-height:1.65}
+header{background:color-mix(in srgb,var(--bg) 94%,transparent);border-bottom:0;box-shadow:0 1px 0 var(--line),0 2px 10px rgba(9,30,66,.05)}
+.brand{font:800 1.3rem/1 var(--display);color:var(--accent);letter-spacing:-.01em}
+.brand i{background:var(--accent);width:28px;height:28px;border-radius:7px;clip-path:none;position:relative}
+.brand i::before,.brand i::after{content:"";position:absolute;top:8px;width:8px;height:8px;border-top:3px solid #fff;border-right:3px solid #fff;transform:rotate(45deg)}
+.brand i::before{left:5px;opacity:.7}.brand i::after{left:12px}
+.brand span{color:var(--fg)}
+nav a{color:var(--muted);font-weight:600;border-radius:4px;padding:10px 12px;position:relative}
+nav a:hover{color:var(--accent);background:var(--accent-soft)}
+nav a[aria-current="page"]{background:none;color:var(--accent)}
+nav a[aria-current="page"]::after{content:"";position:absolute;left:12px;right:12px;bottom:2px;height:3px;border-radius:3px;background:var(--accent)}
+main{padding-block:0 80px}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;color:var(--fg)}
+h1{font-weight:800;font-size:clamp(2.3rem,5.2vw,3.9rem);line-height:1.08}
+h2{font-weight:800}
+.eyebrow{font:600 .78rem var(--body);letter-spacing:.08em;color:var(--accent)}
+.lede{color:var(--muted)}
+.btn{border-radius:4px;border:2px solid var(--line);color:var(--fg);background:var(--surface);padding:11px 20px;font-weight:600;transition:background .15s,border-color .15s}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{background:color-mix(in srgb,var(--accent) 85%,#000);color:var(--accent-ink)}
+.card,.case,ol.steps li{border:0;border-radius:8px;box-shadow:var(--shadow);background:var(--surface);transition:transform .2s,box-shadow .2s}
+@media (prefers-reduced-motion:no-preference){.card:hover,.case:hover,ol.steps li:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(9,30,66,.1),0 14px 32px rgba(9,30,66,.12)}}
+.card h3::before{content:"";display:block;width:36px;height:36px;border-radius:8px;margin-bottom:12px;background:linear-gradient(135deg,var(--accent),var(--cyan))}
+.grid .card:nth-child(3n+2) h3::before{background:linear-gradient(135deg,var(--yellow),#fca700)}
+.grid .card:nth-child(3n+3) h3::before{background:linear-gradient(135deg,var(--navy),var(--accent))}
+.chip{font:500 .82rem var(--body);background:var(--chip);color:var(--fg);border-radius:4px;padding:6px 10px}
+.logos .chip{background:var(--surface);box-shadow:var(--shadow);padding:10px 14px;font-weight:600;font-family:var(--display)}
+.stats{border:0;background:var(--bg-soft);border-radius:8px;padding:28px}
+.stats b{font-family:var(--display)}
+.contact{background:linear-gradient(120deg,var(--navy-d),var(--accent));color:#fff;border-radius:8px}
+.contact h2{color:#fff}
+.contact p{color:#dbe7ff}
+.mail code{background:rgba(255,255,255,.14);color:#fff}
+.mail button{background:#fff;color:var(--navy-d)}
+#copied{color:#fff}
+.case dd.edge{background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:4px}
+.badge{border-radius:4px;border:0;border-left:3px solid var(--accent);background:var(--accent-soft)}
+footer{background:var(--bg-soft);border-top:0}
+/* Hero band with illustration */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:24px;align-items:center;
+  margin-inline:calc(50% - 50vw);padding-inline:max(16px,calc(50vw - 540px));padding-block:56px 40px;
+  background:radial-gradient(1200px 400px at 80% 110%,var(--accent-soft),transparent 70%),linear-gradient(180deg,var(--bg-soft),var(--bg))}
+.hero>.stack{min-width:0}
+.hero-art{min-width:0}
+.iso{width:100%;height:auto;max-width:560px;display:block;margin-inline:auto;overflow:visible}
+.pl-t{fill:var(--plat-t)}.pl-l{fill:var(--plat-l)}.pl-r{fill:var(--plat-r)}
+.pl2-t{fill:var(--accent-soft)}.pl2-l{fill:var(--plat-l)}.pl2-r{fill:var(--plat-r)}
+.bl-t{fill:#4c9aff}.bl-l{fill:var(--accent)}.bl-r{fill:#0055cc}
+.cy-t{fill:#9dd9ee}.cy-l{fill:var(--cyan)}.cy-r{fill:var(--cyan-d)}
+.yl-t{fill:#f8e08e}.yl-l{fill:var(--yellow)}.yl-r{fill:var(--yellow-d)}
+.nv-t{fill:#3a5f9e}.nv-l{fill:var(--navy)}.nv-r{fill:var(--navy-d)}
+.wh-t{fill:#ffffff}.wh-l{fill:#f1f4f8}.wh-r{fill:#d9e1ea}
+.ring{fill:none;stroke:var(--accent);stroke-width:7;stroke-linecap:round}
+@media (prefers-reduced-motion:no-preference){.iso{animation:float 7s ease-in-out infinite}@keyframes float{50%{transform:translateY(-8px)}}}
+@media (max-width:820px){.hero{grid-template-columns:1fr;padding-block:36px 24px}.hero-art{order:-1}.iso{max-width:380px}}
+.page>section:first-child.hero+section{margin-top:56px}
 </style>
 </head>
 <body>
 
 <header><div class="wrap">
-  <a class="brand" href="#home"><i aria-hidden="true"></i>Agile Elite</a>
+  <a class="brand" href="#home"><i aria-hidden="true"></i>Agile <span>Elite</span></a>
   <nav aria-label="Main">
     <a href="#home" data-page="home">Home</a>
     <a href="#products" data-page="products">Products</a>
@@ -126,12 +189,13 @@ footer .wrap{padding-block:28px;display:flex;justify-content:space-between;gap:1
 
 <!-- PAGE 1: HOME -->
 <div class="page stack" id="home" style="gap:0">
-  <section class="stack">
+  <section class="hero"><div class="stack">
     <span class="eyebrow">Consultancy and products · Reading, UK</span>
     <h1>Better delivery, from the boardroom to the team.</h1>
-    <p class="lede">Agile Elite Ltd is a UK consultancy and product development company based in Reading. We build our own products: DelPulse, the product operating model for healthcare; FitB, a social fitness platform; and Undeniably Good Co., a creator marketplace launching this Black Friday. Our consultancy designs product and agile operating models for organisations such as the NHS, Spire Healthcare, Jaguar Land Rover and Vodafone. Our NHS product operating model is recognised by Atlassian as a verified solution for healthcare.</p>
+    <p class="lede">A UK consultancy and product company. We design and run operating models for organisations such as the NHS, Spire Healthcare, Jaguar Land Rover and Vodafone, and we build our own products: DelPulse, FitB and Undeniably Good Co.</p>
+    <p class="badge"><span aria-hidden="true">✓</span> Our NHS product operating model is recognised by Atlassian as a verified solution for healthcare.</p>
     <div class="btns"><a class="btn primary" href="#work-with-us">Our consultancy</a><a class="btn" href="#products">See our products</a></div>
-  </section>
+  </div><div class="hero-art"><svg class="iso" viewBox="0 0 600 470" role="img" aria-hidden="true"><polygon class="pl-t" points="300.0,98.0 509.6,219.0 300.0,340.0 90.4,219.0"/><polygon class="pl-l" points="90.4,241.0 300.0,362.0 300.0,340.0 90.4,219.0"/><polygon class="pl-r" points="509.6,241.0 300.0,362.0 300.0,340.0 509.6,219.0"/><polygon class="pl2-t" points="509.6,131.0 623.9,197.0 528.6,252.0 414.3,186.0"/><polygon class="pl2-l" points="414.3,208.0 528.6,274.0 528.6,252.0 414.3,186.0"/><polygon class="pl2-r" points="623.9,219.0 528.6,274.0 528.6,252.0 623.9,197.0"/><polygon class="bl-t" points="195.2,147.5 218.1,160.7 195.2,173.9 172.3,160.7"/><polygon class="bl-l" points="172.3,193.7 195.2,206.9 195.2,173.9 172.3,160.7"/><polygon class="bl-r" points="218.1,193.7 195.2,206.9 195.2,173.9 218.1,160.7"/><polygon class="bl-t" points="225.7,143.1 248.6,156.3 225.7,169.5 202.8,156.3"/><polygon class="bl-l" points="202.8,211.3 225.7,224.5 225.7,169.5 202.8,156.3"/><polygon class="bl-r" points="248.6,211.3 225.7,224.5 225.7,169.5 248.6,156.3"/><polygon class="bl-t" points="256.2,127.7 279.0,140.9 256.2,154.1 233.3,140.9"/><polygon class="bl-l" points="233.3,228.9 256.2,242.1 256.2,154.1 233.3,140.9"/><polygon class="bl-r" points="279.0,228.9 256.2,242.1 256.2,154.1 279.0,140.9"/><polygon class="bl-t" points="286.7,112.3 309.5,125.5 286.7,138.7 263.8,125.5"/><polygon class="bl-l" points="263.8,246.5 286.7,259.7 286.7,138.7 263.8,125.5"/><polygon class="bl-r" points="309.5,246.5 286.7,259.7 286.7,138.7 309.5,125.5"/><polygon class="wh-t" points="300.0,32.0 395.3,87.0 389.5,90.3 294.3,35.3"/><polygon class="wh-l" points="294.3,134.3 389.5,189.3 389.5,90.3 294.3,35.3"/><polygon class="wh-r" points="395.3,186.0 389.5,189.3 389.5,90.3 395.3,87.0"/><polygon class="yl-t" points="311.4,41.9 334.3,55.1 330.5,57.3 307.6,44.1"/><polygon class="yl-l" points="307.6,63.9 330.5,77.1 330.5,57.3 307.6,44.1"/><polygon class="yl-r" points="334.3,74.9 330.5,77.1 330.5,57.3 334.3,55.1"/><polygon class="cy-t" points="341.0,58.9 363.8,72.1 360.0,74.3 337.2,61.1"/><polygon class="cy-l" points="337.2,80.9 360.0,94.1 360.0,74.3 337.2,61.1"/><polygon class="cy-r" points="363.8,91.9 360.0,94.1 360.0,74.3 363.8,72.1"/><polygon class="bl-t" points="370.5,76.0 393.4,89.2 389.5,91.4 366.7,78.2"/><polygon class="bl-l" points="366.7,98.0 389.5,111.2 389.5,91.4 366.7,78.2"/><polygon class="bl-r" points="393.4,109.0 389.5,111.2 389.5,91.4 393.4,89.2"/><polygon class="cy-t" points="311.4,74.9 334.3,88.1 330.5,90.3 307.6,77.1"/><polygon class="cy-l" points="307.6,96.9 330.5,110.1 330.5,90.3 307.6,77.1"/><polygon class="cy-r" points="334.3,107.9 330.5,110.1 330.5,90.3 334.3,88.1"/><polygon class="yl-t" points="370.5,109.0 393.4,122.2 389.5,124.4 366.7,111.2"/><polygon class="yl-l" points="366.7,131.0 389.5,144.2 389.5,124.4 366.7,111.2"/><polygon class="yl-r" points="393.4,142.0 389.5,144.2 389.5,124.4 393.4,122.2"/><polygon class="bl-t" points="341.0,92.0 363.8,105.1 360.0,107.3 337.2,94.1"/><polygon class="bl-l" points="337.2,113.9 360.0,127.1 360.0,107.3 337.2,94.1"/><polygon class="bl-r" points="363.8,124.9 360.0,127.1 360.0,107.3 363.8,105.1"/><polygon class="nv-t" points="414.3,142.0 452.4,164.0 414.3,186.0 376.2,164.0"/><polygon class="nv-l" points="376.2,230.0 414.3,252.0 414.3,186.0 376.2,164.0"/><polygon class="nv-r" points="452.4,230.0 414.3,252.0 414.3,186.0 452.4,164.0"/><polygon class="bl-t" points="414.3,109.0 452.4,131.0 414.3,153.0 376.2,131.0"/><polygon class="bl-l" points="376.2,164.0 414.3,186.0 414.3,153.0 376.2,131.0"/><polygon class="bl-r" points="452.4,164.0 414.3,186.0 414.3,153.0 452.4,131.0"/><polygon class="yl-t" points="519.1,114.5 557.2,136.5 519.1,158.5 481.0,136.5"/><polygon class="yl-l" points="481.0,180.5 519.1,202.5 519.1,158.5 481.0,136.5"/><polygon class="yl-r" points="557.2,180.5 519.1,202.5 519.1,158.5 557.2,136.5"/><circle class="ring" cx="300.0" cy="175.0" r="26"/><line class="ring" x1="318.0" y1="193.0" x2="340.0" y2="215.0"/></svg></div></section>
 
   <section class="stack">
     <span class="eyebrow">What we do</span>
@@ -153,12 +217,12 @@ footer .wrap{padding-block:28px;display:flex;justify-content:space-between;gap:1
 
 <!-- PAGE 2: PRODUCTS -->
 <div class="page stack" id="products" hidden style="gap:0">
-  <section class="stack">
+  <section class="hero"><div class="stack">
     <span class="eyebrow">Our products</span>
     <h1>Three products, built and run in-house.</h1>
     <p class="lede">DelPulse, the product operating model for healthcare. FitB for people who want to get fit together. Undeniably Good Co. for brands and creators who want real content and real views.</p>
     <div class="btns"><a class="btn" href="#delpulse-detail">DelPulse</a><a class="btn" href="#fitb-detail">FitB</a><a class="btn" href="#undeniably-detail">Undeniably Good Co.</a></div>
-  </section>
+  </div><div class="hero-art"><svg class="iso" viewBox="0 0 600 470" role="img" aria-hidden="true"><polygon class="pl-t" points="300.0,98.0 509.6,219.0 300.0,340.0 90.4,219.0"/><polygon class="pl-l" points="90.4,241.0 300.0,362.0 300.0,340.0 90.4,219.0"/><polygon class="pl-r" points="509.6,241.0 300.0,362.0 300.0,340.0 509.6,219.0"/><polygon class="bl-t" points="300.0,76.0 366.7,114.5 300.0,153.0 233.3,114.5"/><polygon class="bl-l" points="233.3,158.5 300.0,197.0 300.0,153.0 233.3,114.5"/><polygon class="bl-r" points="366.7,158.5 300.0,197.0 300.0,153.0 366.7,114.5"/><polygon class="yl-t" points="300.0,65.0 366.7,103.5 300.0,142.0 233.3,103.5"/><polygon class="yl-l" points="233.3,114.5 300.0,153.0 300.0,142.0 233.3,103.5"/><polygon class="yl-r" points="366.7,114.5 300.0,153.0 300.0,142.0 366.7,103.5"/><polygon class="cy-t" points="395.3,98.0 461.9,136.5 395.3,175.0 328.6,136.5"/><polygon class="cy-l" points="328.6,213.5 395.3,252.0 395.3,175.0 328.6,136.5"/><polygon class="cy-r" points="461.9,213.5 395.3,252.0 395.3,175.0 461.9,136.5"/><polygon class="nv-t" points="252.4,147.5 319.1,186.0 252.4,224.5 185.7,186.0"/><polygon class="nv-l" points="185.7,241.0 252.4,279.5 252.4,224.5 185.7,186.0"/><polygon class="nv-r" points="319.1,241.0 252.4,279.5 252.4,224.5 319.1,186.0"/><polygon class="yl-t" points="195.2,169.5 223.8,186.0 195.2,202.5 166.6,186.0"/><polygon class="yl-l" points="166.6,208.0 195.2,224.5 195.2,202.5 166.6,186.0"/><polygon class="yl-r" points="223.8,208.0 195.2,224.5 195.2,202.5 223.8,186.0"/></svg></div></section>
 
   <section class="stack" id="delpulse-detail">
     <span class="eyebrow">DelPulse · delpulse.co.uk</span>
@@ -253,12 +317,12 @@ footer .wrap{padding-block:28px;display:flex;justify-content:space-between;gap:1
 
 <!-- PAGE 3: CONSULTANCY -->
 <div class="page stack" id="work-with-us" hidden style="gap:0">
-  <section class="stack">
+  <section class="hero"><div class="stack">
     <span class="eyebrow">Consultancy</span>
     <h1>Operating models that turn strategy into delivery.</h1>
     <p class="lede">Agile Elite designs, delivers and runs operating models for large, complex organisations across healthcare, telecoms, automotive, government and education. We provide the full service, from assessment and design through programme delivery, tooling and training, with SAFe 6 Program Consultant and ICAgile certified leadership and more than ten years of results.</p>
     <div class="btns"><a class="btn primary" href="#contact">Get in touch</a></div>
-  </section>
+  </div><div class="hero-art"><svg class="iso" viewBox="0 0 600 470" role="img" aria-hidden="true"><polygon class="pl-t" points="300.0,98.0 509.6,219.0 300.0,340.0 90.4,219.0"/><polygon class="pl-l" points="90.4,241.0 300.0,362.0 300.0,340.0 90.4,219.0"/><polygon class="pl-r" points="509.6,241.0 300.0,362.0 300.0,340.0 509.6,219.0"/><polygon class="wh-t" points="309.5,37.5 461.9,125.5 456.2,128.8 303.8,40.8"/><polygon class="wh-l" points="303.8,128.8 456.2,216.8 456.2,128.8 303.8,40.8"/><polygon class="wh-r" points="461.9,213.5 456.2,216.8 456.2,128.8 461.9,125.5"/><polygon class="yl-t" points="321.0,62.8 341.9,74.9 338.1,77.1 317.1,65.0"/><polygon class="yl-l" points="317.1,82.6 338.1,94.7 338.1,77.1 317.1,65.0"/><polygon class="yl-r" points="341.9,92.5 338.1,94.7 338.1,77.1 341.9,74.9"/><polygon class="cy-t" points="349.5,79.3 370.5,91.4 366.7,93.6 345.7,81.5"/><polygon class="cy-l" points="345.7,99.1 366.7,111.2 366.7,93.6 345.7,81.5"/><polygon class="cy-r" points="370.5,109.0 366.7,111.2 366.7,93.6 370.5,91.4"/><polygon class="bl-t" points="378.1,95.8 399.1,107.9 395.3,110.1 374.3,98.0"/><polygon class="bl-l" points="374.3,115.6 395.3,127.7 395.3,110.1 374.3,98.0"/><polygon class="bl-r" points="399.1,125.5 395.3,127.7 395.3,110.1 399.1,107.9"/><polygon class="cy-t" points="406.7,112.3 427.7,124.4 423.8,126.6 402.9,114.5"/><polygon class="cy-l" points="402.9,132.1 423.8,144.2 423.8,126.6 402.9,114.5"/><polygon class="cy-r" points="427.7,142.0 423.8,144.2 423.8,126.6 427.7,124.4"/><polygon class="yl-t" points="435.3,128.8 456.2,140.9 452.4,143.1 431.5,131.0"/><polygon class="yl-l" points="431.5,148.6 452.4,160.7 452.4,143.1 431.5,131.0"/><polygon class="yl-r" points="456.2,158.5 452.4,160.7 452.4,143.1 456.2,140.9"/><polygon class="cy-t" points="233.3,147.5 267.6,167.3 233.3,187.1 199.0,167.3"/><polygon class="cy-l" points="199.0,189.3 233.3,209.1 233.3,187.1 199.0,167.3"/><polygon class="cy-r" points="267.6,189.3 233.3,209.1 233.3,187.1 267.6,167.3"/><polygon class="bl-t" points="275.2,145.3 309.5,165.1 275.2,184.9 240.9,165.1"/><polygon class="bl-l" points="240.9,213.5 275.2,233.3 275.2,184.9 240.9,165.1"/><polygon class="bl-r" points="309.5,213.5 275.2,233.3 275.2,184.9 309.5,165.1"/><polygon class="bl-t" points="317.1,143.1 351.4,162.9 317.1,182.7 282.9,162.9"/><polygon class="bl-l" points="282.9,237.7 317.1,257.5 317.1,182.7 282.9,162.9"/><polygon class="bl-r" points="351.4,237.7 317.1,257.5 317.1,182.7 351.4,162.9"/><polygon class="nv-t" points="359.1,140.9 393.4,160.7 359.1,180.5 324.8,160.7"/><polygon class="nv-l" points="324.8,261.9 359.1,281.7 359.1,180.5 324.8,160.7"/><polygon class="nv-r" points="393.4,261.9 359.1,281.7 359.1,180.5 393.4,160.7"/><polygon class="yl-t" points="176.2,191.5 204.7,208.0 176.2,224.5 147.6,208.0"/><polygon class="yl-l" points="147.6,230.0 176.2,246.5 176.2,224.5 147.6,208.0"/><polygon class="yl-r" points="204.7,230.0 176.2,246.5 176.2,224.5 204.7,208.0"/></svg></div></section>
 
   <section class="stats" aria-label="Track record">
     <div><b>£1.1m</b><span>yearly benefit projected per NHS trust from the product operating model</span></div>
@@ -457,7 +521,7 @@ function show(){
   const id=pages.includes(h)?h:(anchors[h]||"home");
   pages.forEach(p=>document.getElementById(p).hidden=p!==id);
   document.querySelectorAll("nav a").forEach(a=>a.dataset.page===id?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
-  if(anchors[h]) document.getElementById(h).scrollIntoView(); else window.scrollTo(0,0);
+  requestAnimationFrame(()=>{ if(anchors[h]) document.getElementById(h).scrollIntoView(); else window.scrollTo(0,0); });
 }
 addEventListener("hashchange",show);show();
 document.getElementById("copy").addEventListener("click",()=>{
