@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Agile Elite Ltd: operating model consultancy and the products DelPulse, FitB and Undeniably Good Co.">
+<style>html{color-scheme:light}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Agile Elite</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky top bar, three hash-routed pages, each a narrow editorial column with wide bands for proof points */
+:root{
+  --bg:#f4f6f8; --surface:#ffffff; --fg:#0f1a24; --muted:#56657a; --line:#d6dde6;
+  --accent:#1f5eff; --accent-ink:#ffffff; --chip:#e6edff;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0b121a; --surface:#121c27; --fg:#e8eef5; --muted:#93a2b5; --line:#24323f;
+  --accent:#6f97ff; --accent-ink:#0b121a; --chip:#1a2a45; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b121a; --surface:#121c27; --fg:#e8eef5; --muted:#93a2b5; --line:#24323f;
+  --accent:#6f97ff; --accent-ink:#0b121a; --chip:#1a2a45; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 var(--body)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px;flex-wrap:wrap}
+.brand{font:800 1.25rem/1 var(--display);letter-spacing:-.02em;color:var(--fg);text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand i{width:22px;height:22px;display:inline-block;background:var(--accent);clip-path:polygon(0 100%,50% 0,100% 100%,70% 100%,50% 55%,30% 100%)}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav a{font:500 .9rem var(--body);color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:999px}
+nav a:hover{color:var(--fg)}
+nav a[aria-current="page"]{background:var(--fg);color:var(--bg)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+main{padding-block:56px 72px}
+.eyebrow{font:500 .75rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;letter-spacing:-.025em;margin:0}
+h1{font-size:clamp(2.4rem,6vw,4.4rem);line-height:1.02;font-weight:800;max-width:16ch}
+h2{font-size:clamp(1.6rem,3.2vw,2.2rem);line-height:1.1;font-weight:700}
+h3{font-size:1.15rem;font-weight:700;letter-spacing:-.01em}
+p{margin:0}
+.lede{font-size:1.2rem;color:var(--muted);max-width:60ch}
+.stack{display:flex;flex-direction:column;gap:20px}
+section+section{margin-top:72px}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.grid>*{min-width:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.card p{color:var(--muted)}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font:600 .95rem var(--body);text-decoration:none;padding:12px 20px;border-radius:10px;border:1px solid var(--fg);color:var(--fg)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:500 .8rem var(--mono);background:var(--chip);color:var(--fg);padding:5px 10px;border-radius:6px}
+.split{display:grid;gap:40px;grid-template-columns:1fr 1.3fr;align-items:start}
+.split>*{min-width:0}
+@media (max-width:760px){.split{grid-template-columns:1fr}}
+/* Sprint board: the consultancy's own vernacular */
+.board{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:12px;overflow-x:auto;padding-bottom:6px}
+.col{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px}
+.col b{font:500 .72rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.ticket{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:6px;padding:8px 10px;font-size:.88rem;background:var(--bg)}
+.board-wrap{overflow-x:auto}
+.rules{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.rules li{display:grid;grid-template-columns:minmax(0,14rem) minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.rules li strong{font-family:var(--display);font-size:1.05rem}
+.rules li span{color:var(--muted)}
+@media (max-width:600px){.rules li{grid-template-columns:1fr;gap:4px}}
+.stats{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));border-block:1px solid var(--line);padding-block:24px}
+.stats div{display:flex;flex-direction:column;gap:4px;min-width:0}
+.stats b{font:800 2.4rem/1 var(--display);letter-spacing:-.03em;color:var(--accent);font-variant-numeric:tabular-nums}
+.stats span{color:var(--muted);font-size:.9rem}
+.clients{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.clients li{display:grid;grid-template-columns:minmax(0,17rem) minmax(0,1fr);gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}
+.clients li div{display:flex;flex-direction:column;gap:2px}
+.clients strong{font-family:var(--display);font-size:1.05rem}
+.clients em{font:normal 500 .78rem var(--mono);color:var(--muted)}
+.clients span{color:var(--muted)}
+@media (max-width:600px){.clients li{grid-template-columns:1fr;gap:6px}}
+.cases{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr))}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.case header{display:flex;flex-direction:column;gap:4px;position:static;background:none;backdrop-filter:none;border:0}
+.case .sector{font:500 .72rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.case h3{font-size:1.35rem}
+.case em{font:normal 500 .8rem var(--mono);color:var(--muted)}
+.case dl{margin:0;display:grid;gap:6px}
+.case dt{font:600 .78rem var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--fg);margin-top:6px}
+.case dd{margin:0;color:var(--muted)}
+.case ul{margin:4px 0 0;padding-left:1.1rem;display:grid;gap:3px}
+.case li::marker{color:var(--accent)}
+.case dt.edge{color:var(--accent)}
+.case dd.edge{color:var(--fg);background:var(--chip);border-radius:8px;padding:10px 12px}
+.why{display:flex;flex-direction:column;gap:12px}
+.badge{display:flex;gap:10px;align-items:flex-start;background:var(--chip);color:var(--fg);border:1px solid var(--accent);border-radius:10px;padding:10px 14px;font-weight:500;max-width:70ch}
+.badge span{color:var(--accent);font-weight:700}
+ol.steps{list-style:none;padding:0;margin:0;counter-reset:s;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+ol.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:8px}
+ol.steps li::before{content:"Step " counter(s);font:500 .75rem var(--mono);color:var(--accent);letter-spacing:.08em;text-transform:uppercase}
+ol.steps li p{color:var(--muted)}
+.contact{background:var(--fg);color:var(--bg);border-radius:18px;padding:36px;display:flex;flex-direction:column;gap:16px}
+.contact p{color:color-mix(in srgb,var(--bg) 75%,var(--fg))}
+.mail{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.mail code{font:500 1.05rem var(--mono);background:color-mix(in srgb,var(--bg) 12%,var(--fg));padding:8px 12px;border-radius:8px;user-select:all;word-break:break-all}
+.mail button{font:600 .9rem var(--body);background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;padding:10px 14px;cursor:pointer}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer .wrap{padding-block:28px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.page[hidden]{display:none!important}
+@media (prefers-reduced-motion:no-preference){.page{animation:in .35s ease both}@keyframes in{from{transform:translateY(6px)}to{transform:none}}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <a class="brand" href="#home"><i aria-hidden="true"></i>Agile Elite</a>
+  <nav aria-label="Main">
+    <a href="#home" data-page="home">Home</a>
+    <a href="#products" data-page="products">Products</a>
+    <a href="#work-with-us" data-page="work-with-us">Consultancy</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+
+<!-- PAGE 1: HOME -->
+<div class="page stack" id="home" style="gap:0">
+  <section class="stack">
+    <span class="eyebrow">Consultancy and products · Reading, UK</span>
+    <h1>Better delivery, from the boardroom to the team.</h1>
+    <p class="lede">Agile Elite Ltd is a UK consultancy and product development company based in Reading. We build our own products: DelPulse, the product operating model for healthcare; FitB, a social fitness platform; and Undeniably Good Co., a creator marketplace launching this Black Friday. Our consultancy designs product and agile operating models for organisations such as the NHS, Spire Healthcare, Jaguar Land Rover and Vodafone. Our NHS product operating model is recognised by Atlassian as a verified solution for healthcare.</p>
+    <div class="btns"><a class="btn primary" href="#work-with-us">Our consultancy</a><a class="btn" href="#products">See our products</a></div>
+  </section>
+
+  <section class="stack">
+    <span class="eyebrow">What we do</span>
+    <div class="grid">
+      <div class="card"><h3>DelPulse</h3><p>The product operating model for healthcare: the model, the platform that runs it, and the coaching to make it stick.</p></div>
+      <div class="card"><h3>FitB</h3><p>Social fitness on web and iOS: buddies, live classes, a trainer marketplace and AI coaching.</p></div>
+      <div class="card"><h3>Undeniably Good Co.</h3><p>A UK creator marketplace where brands pay for real videos and verified views, and creators keep 100%.</p></div>
+      <div class="card"><h3>Operating model design</h3><p>Product and agile operating models with one front door, owned backlogs, portfolio governance and measured benefits.</p></div>
+      <div class="card"><h3>AI in real products</h3><p>Practical AI features with guardrails: every model call measured, outputs checked before members see them, and a clear fallback when the model is unsure.</p></div>
+    </div>
+  </section>
+
+  <section class="stack">
+    <span class="eyebrow">Organisations we have worked with</span>
+    <div class="chips logos"><span class="chip">NHS East Midlands Acute Providers</span><span class="chip">Spire Healthcare</span><span class="chip">Jaguar Land Rover</span><span class="chip">Vodafone</span><span class="chip">Department for Education</span><span class="chip">HMRC</span><span class="chip">Domestic &amp; General</span><span class="chip">King's College London</span><span class="chip">Three UK</span><span class="chip">Seven Four Digital</span><span class="chip">DA Systems</span></div>
+    <p><a class="btn" href="#case-studies">Read the case studies</a></p>
+  </section>
+</div>
+
+<!-- PAGE 2: PRODUCTS -->
+<div class="page stack" id="products" hidden style="gap:0">
+  <section class="stack">
+    <span class="eyebrow">Our products</span>
+    <h1>Three products, built and run in-house.</h1>
+    <p class="lede">DelPulse, the product operating model for healthcare. FitB for people who want to get fit together. Undeniably Good Co. for brands and creators who want real content and real views.</p>
+    <div class="btns"><a class="btn" href="#delpulse-detail">DelPulse</a><a class="btn" href="#fitb-detail">FitB</a><a class="btn" href="#undeniably-detail">Undeniably Good Co.</a></div>
+  </section>
+
+  <section class="stack" id="delpulse-detail">
+    <span class="eyebrow">DelPulse · delpulse.co.uk</span>
+    <h2>DelPulse: the product operating model for healthcare.</h2>
+    <p class="badge"><span aria-hidden="true">✓</span> Recognised by Atlassian as a verified solution, built specifically to deliver healthcare product change safely and improve operational and financial efficiency.</p>
+    <p class="lede">DelPulse is how healthcare organisations move from project-by-project change to stable, continuously funded product teams. It brings together the operating model (one front door for demand, owned backlogs, value-based prioritisation on clinical safety, operational and financial impact, and governance through to benefits realisation) and the platform that runs it, so leadership, the PMO, programmes, product teams and live services all work from the same picture.</p>
+    <ul class="rules">
+      <li><strong>The model</strong><span>Roles, cadence, intake, prioritisation, portfolio governance and benefits tracking, built from the approach that delivered 183 EPR optimisation items across the East Midlands Acute Providers.</span></li>
+      <li><strong>The platform</strong><span>The software that makes the model visible every day, from the board's portfolio view to the delivery team's sprint.</span></li>
+      <li><strong>The support</strong><span>Training to activate each trust's product teams, sprint-maturity coaching and communities of practice for every role.</span></li>
+    </ul>
+    <div class="grid">
+      <div class="card"><h3>Leading the organisation</h3><p>Leaders see the whole portfolio and where delivery stands, without chasing status reports.</p></div>
+      <div class="card"><h3>Portfolio and PMO</h3><p>Prioritise, govern and track the full portfolio of change in one place.</p></div>
+      <div class="card"><h3>Programmes and projects</h3><p>Plan and run programmes and the projects inside them, with dependencies visible.</p></div>
+      <div class="card"><h3>Products, demand to value</h3><p>Follow each product from incoming demand through delivery to the value it returns.</p></div>
+      <div class="card"><h3>Delivery teams</h3><p>Day-to-day work for the teams doing the delivery, tied to the plans above them.</p></div>
+      <div class="card"><h3>Keeping services running</h3><p>Service operations sit alongside change, so live services and new work are managed together.</p></div>
+      <div class="card"><h3>Working across organisations</h3><p>Partners and suppliers can work in the same delivery picture.</p></div>
+      <div class="card"><h3>Set up and connected</h3><p>Configure DelPulse to your way of working and connect it to the tools you already use.</p></div>
+      <div class="card"><h3>From Essential to everything</h3><p>Start with the Essential edition and grow into the full platform as you need it.</p></div>
+    </div>
+  </section>
+
+  <section class="stack" id="fitb-detail">
+    <span class="eyebrow">FitB · fitb.social</span>
+    <h2>FitB: nobody gets fit alone.</h2>
+    <p class="lede">FitB is a social fitness platform that pairs members with workout buddies, live classes and personal trainers, with an AI coach that keeps people going between sessions. It runs on the web and as an iOS app, in English and Spanish.</p>
+    <div class="btns"><a class="btn primary" href="https://fitb.social" target="_blank" rel="noopener">Visit fitb.social</a></div>
+  </section>
+
+  <section class="stack">
+    <span class="eyebrow">For members</span>
+    <div class="grid">
+      <div class="card"><h3>Buddies and weekly pacts</h3><p>Members who opt in are paired with someone on the same journey, and the pair sets a weekly pact that renews while both keep showing up.</p></div>
+      <div class="card"><h3>Four journeys</h3><p>Weight loss, muscle, fitness or wellbeing. Every feed, video and programme is ordered for the member's own journey.</p></div>
+      <div class="card"><h3>Live classes and 1:1 calls</h3><p>Camera-and-audio sessions with trainers and buddies, all in one shared room.</p></div>
+      <div class="card"><h3>FitB Crew (AI)</h3><p>An AI buddy, always labelled as AI, that builds walking, workout and meal plans on request, logs what you tell it and links you to the exact screen.</p></div>
+      <div class="card"><h3>The scale is not the score</h3><p>Weight is shown as a smoothed trend with a daily score, so one bad weigh-in never reads as failure.</p></div>
+      <div class="card"><h3>FitNote and Weight Loss hub</h3><p>A members' feed for progress posts, plus a curated hub of free, approved clips and programmes.</p></div>
+    </div>
+  </section>
+
+  <section class="stack">
+    <span class="eyebrow">For trainers and gyms</span>
+    <div class="grid">
+      <div class="card"><h3>Trainer marketplace</h3><p>Verified trainers publish a business page, sell sessions, classes and challenges, and get paid with clear VAT receipts.</p></div>
+      <div class="card"><h3>Gyms</h3><p>Gym owners list their gym, classes and memberships under a standard agreement, with FitB acting as their commercial agent.</p></div>
+      <div class="card"><h3>Business onboarding</h3><p>Trainers and owners get their own Crew guide with set-up check-ins and a free setup call.</p></div>
+    </div>
+  </section>
+
+  <section class="split">
+    <div class="stack">
+      <span class="eyebrow">How it is built</span>
+      <h2>Rules live in the system, not just the screen.</h2>
+    </div>
+    <ul class="rules">
+      <li><strong>Security in the database</strong><span>Bookings, payments and messages are checked by database rules, so hiding a button is never the only protection.</span></li>
+      <li><strong>Honest AI</strong><span>A second model reviews every Crew reply for accuracy, safety and tone before it is sent. Doubtful replies go to a person.</span></li>
+      <li><strong>Measured AI</strong><span>Every model call is logged and evaluated, with a path to FitB's own models earned through shadow and canary testing.</span></li>
+      <li><strong>Two languages</strong><span>Every member-facing line is translated to Spanish, enforced by an automated check on every change.</span></li>
+      <li><strong>Privacy first</strong><span>AI training data is used only with member consent, set under Settings &gt; Privacy.</span></li>
+    </ul>
+  </section>
+
+  <section class="stack" id="undeniably-detail">
+    <span class="eyebrow">Undeniably Good Co. · launching Black Friday 2026</span>
+    <h2>Real creators. Real views. Undeniably good.</h2>
+    <p class="lede">A UK-first creator marketplace. Brands fund campaigns, vetted creators make short videos, and creators are paid per video plus per 1,000 verified views. Launching in fitness and wellness, with FitB as the first brand.</p>
+    <div class="grid">
+      <div class="card"><h3>Creators keep 100%</h3><p>Guaranteed pay is reserved from the brand's wallet when a creator joins a campaign. Earnings clear after 7 days and are paid every Thursday from £20.</p></div>
+      <div class="card"><h3>No subscription for brands</h3><p>Top up a wallet from £100, pay creator earnings plus a platform fee, set budget caps, and withdraw what you don't spend. Usage rights on your own channels are included.</p></div>
+      <div class="card"><h3>Every view is real</h3><p>Views are read from the platforms for 30 days. Suspicious spikes are held, and both sides see the same evidence.</p></div>
+      <div class="card"><h3>Vetted creators</h3><p>Account checks plus a human review of sample videos. AI recommends, people decide, and craft is the only thing scored.</p></div>
+      <div class="card"><h3>Undeniably Good Guarantee</h3><p>Free changes, and if a video still misses the brief the brand doesn't pay and is offered another vetted creator.</p></div>
+      <div class="card"><h3>UK compliant by design</h3><p>Built around ASA and CMA rules and the DMCC Act, with the exact approved video published from the app.</p></div>
+    </div>
+    <ol class="steps">
+      <li><h3>Apply</h3><p>Creators connect their accounts and share sample videos for review.</p></li>
+      <li><h3>Match</h3><p>Brands launch a campaign and are matched with suitable creators.</p></li>
+      <li><h3>Draft and review</h3><p>The brand approves or requests changes within 48 hours.</p></li>
+      <li><h3>Post and get paid</h3><p>The creator posts from the app, views are tracked, and pay goes out weekly.</p></li>
+    </ol>
+  </section>
+
+  <section class="stack">
+    <span class="eyebrow">Stack</span>
+    <div class="chips"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Vite</span><span class="chip">Supabase · Postgres</span><span class="chip">Edge functions</span><span class="chip">Capacitor iOS</span><span class="chip">Apple Health</span><span class="chip">WebRTC</span><span class="chip">Gemini</span></div>
+  </section>
+</div>
+
+<!-- PAGE 3: CONSULTANCY -->
+<div class="page stack" id="work-with-us" hidden style="gap:0">
+  <section class="stack">
+    <span class="eyebrow">Consultancy</span>
+    <h1>Operating models that turn strategy into delivery.</h1>
+    <p class="lede">Agile Elite designs, delivers and runs operating models for large, complex organisations across healthcare, telecoms, automotive, government and education. We provide the full service, from assessment and design through programme delivery, tooling and training, with SAFe 6 Program Consultant and ICAgile certified leadership and more than ten years of results.</p>
+    <div class="btns"><a class="btn primary" href="#contact">Get in touch</a></div>
+  </section>
+
+  <section class="stats" aria-label="Track record">
+    <div><b>£1.1m</b><span>yearly benefit projected per NHS trust from the product operating model</span></div>
+    <div><b>183</b><span>EPR optimisation items delivered, releasing about 27,000 staff hours a year</span></div>
+    <div><b>848</b><span>requests brought into one prioritised backlog through a single front door</span></div>
+    <div><b>11</b><span>organisations across healthcare, telecoms, automotive, government and education</span></div>
+  </section>
+
+  <section class="stack">
+    <span class="eyebrow">Our services</span>
+    <h2>Everything needed to change how an organisation delivers.</h2>
+    <p class="lede" style="font-size:1.05rem">Clients take one service or combine them into a full engagement. Each is delivered by Agile Elite as a team, with clear outcomes and measured benefits.</p>
+    <div class="grid">
+      <div class="card"><h3>Operating model design</h3><p>Target and product operating models: one front door for demand, owned backlogs, value-based prioritisation, roles, cadence and governance through to benefits.</p></div>
+      <div class="card"><h3>Programme and product delivery</h3><p>Delivery leadership for programmes, product teams and Agile Release Trains, including dependencies, risks, releases and supplier management.</p></div>
+      <div class="card"><h3>Portfolio and governance</h3><p>Lean Portfolio Management, APMO and SMO set-up, investment cases, funding models and quarterly portfolio reviews.</p></div>
+      <div class="card"><h3>Transformation and capability</h3><p>Centres of excellence, playbooks, communities of practice, training and maturity assessments so your teams can run it themselves.</p></div>
+      <div class="card"><h3>Tooling and data</h3><p>Jira, Azure DevOps and TargetProcess set up around your operating model, with demand portals and flow and benefits reporting.</p></div>
+      <div class="card"><h3>Healthcare: DelPulse</h3><p>Our product operating model for healthcare, combining the model, the platform and the support to roll it out across trusts and sites.</p></div>
+    </div>
+  </section>
+
+  <section class="stack">
+    <span class="eyebrow">What we leave behind</span>
+    <h2>A working toolkit, not a slide deck.</h2>
+    <div class="chips"><span class="chip">Ways of Working Playbook</span><span class="chip">Target operating model</span><span class="chip">Role definitions and RACI</span><span class="chip">Lean Portfolio Management</span><span class="chip">PI Planning and Inspect &amp; Adapt</span><span class="chip">Request prioritisation framework</span><span class="chip">Financial management</span><span class="chip">Journey maps</span><span class="chip">PO, SM and Scrum Master self-assessments</span><span class="chip">Runbooks and templates</span><span class="chip">Test and QA strategy</span><span class="chip">Release plans and deployment notes</span><span class="chip">Azure DevOps and Jira set-up</span><span class="chip">Communities of practice</span><span class="chip">Training and town halls</span></div>
+  </section>
+
+  <section class="stack" id="case-studies">
+    <span class="eyebrow">Case studies</span>
+    <h2>Organisations we have worked with.</h2>
+    <div class="why">
+      <h3>What Agile Elite brings</h3>
+      <ul class="rules">
+        <li><strong>Design and delivery in one service</strong><span>The team that designs your operating model also runs delivery, release trains and product teams, so it is proven on live work.</span></li>
+        <li><strong>Healthcare depth, verified</strong><span>Operating models built for the NHS and private healthcare, prioritised on clinical safety as well as operational and financial impact. Our NHS work is recognised by Atlassian as a verified solution for delivering healthcare product change safely.</span></li>
+        <li><strong>Benefits measured in pounds and hours</strong><span>Every engagement reports its value, from £1.1m a year per NHS trust to a £4m forecast return at Domestic &amp; General.</span></li>
+        <li><strong>A product, not just a method</strong><span>DelPulse packages the product operating model and the platform that runs it, so the model keeps working after we leave.</span></li>
+        <li><strong>Capability that stays</strong><span>Playbooks, communities of practice, training and self-assessments leave your people able to run it themselves.</span></li>
+      </ul>
+    </div>
+    <div class="cases">
+
+      <article class="case">
+        <header><span class="sector">Healthcare · NHS</span><h3>East Midlands Acute Providers</h3><em>2026 to present · Operating model design · Product delivery · Portfolio governance · Benefits realisation</em></header>
+        <p class="badge"><span aria-hidden="true">✓</span> Recognised by Atlassian as a verified solution, built specifically to deliver healthcare product change safely and improve operational and financial efficiency.</p>
+        <dl>
+          <dt>Challenge</dt><dd>EPR optimisation requests arrived through spreadsheets, emails and meetings, with no single view of demand, priority or benefit across the trusts.</dd>
+          <dt>What we did</dt><dd>Designed and implemented a product operating model: one intake front door, owned backlogs, value-based prioritisation on clinical safety, operational and financial impact, two-weekly sprints and governance through to benefits realisation. Led product teams for PAS, Clinical Documentation, Urgent &amp; Emergency Care and EPMA, built the investment case and 12-month scaling roadmap, and designed shared EMAP portfolio governance so solutions are built once and reused.</dd>
+          <dt>Results</dt><dd><ul><li>183 optimisation items delivered</li><li>About 27,000 staff hours a year released (£597k productivity equivalent)</li><li>Projected £1.1m a year per trust, a 146% return on annual investment</li><li>848 requests in one prioritised backlog; monthly intake grew from 8 to 47</li><li>Proven at University Hospitals of Leicester and Northamptonshire, scaling to 8 trusts</li><li>Recognised by Atlassian as a verified solution</li></ul></dd>
+          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We designed the operating model and then ran the product teams ourselves, so the model was proven on live EPR work before it scaled. Every item was measured in staff hours and pounds, and the approach is now packaged as DelPulse so all 8 trusts can adopt it without starting again.</dd>
+        </dl>
+      </article>
+
+      <article class="case">
+        <header><span class="sector">Healthcare · Private</span><h3>Spire Healthcare</h3><em>2024 to 2026 · Target operating model · Transformation · Programme delivery · Service introduction</em></header>
+        <dl>
+          <dt>Challenge</dt><dd>A new digital strategy needed IT to work with the business in new ways, delivering value sooner while protecting patient safety.</dd>
+          <dt>What we did</dt><dd>Designed a Scaled Agile target operating model built on eight value streams aligned to patient, partner and colleague journeys, with platform teams, new product and delivery roles, a Strategic Management Office and one portfolio backlog in Azure DevOps. Wrote and launched the IT Ways of Working Playbook, introduced WSJF and backlog governance and facilitated PI Planning. Then led delivery across Pathology and Radiology, including the WinPath LIMS introduction with Clinisys and the PACS upgrade.</dd>
+          <dt>Results</dt><dd><ul><li>Work traced from OKR to Epic, Feature and Story in one tool</li><li>15 to 25% CT/MRI utilisation opportunity identified through booking and scheduling redesign</li><li>Standardised workflows across sites and fewer admin-driven delays</li><li>Better data traceability, reporting and audit readiness</li></ul></dd>
+          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We designed the target operating model, wrote the playbook, and then stayed to lead delivery through LIMS and PACS. The same people who drew the model made it work with clinical leads, vendors and operations.</dd>
+        </dl>
+      </article>
+
+      <article class="case">
+        <header><span class="sector">Technology consultancy</span><h3>Seven Four Digital</h3><em>2024 · Portfolio tooling implementation</em></header>
+        <dl>
+          <dt>Challenge</dt><dd>IBM and Apptio enterprise clients needed portfolio tooling that connected strategy, funding and delivery.</dd>
+          <dt>What we did</dt><dd>Implemented Apptio TargetProcess for enterprise clients, configuring it around their portfolio, governance and prioritisation.</dd>
+          <dt>Results</dt><dd><ul><li>Better portfolio visibility, governance and prioritisation for each client</li></ul></dd>
+          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We bring hands-on portfolio tooling experience from inside large enterprises, so the tool was set up around how portfolios really run, not just how the software ships.</dd>
+        </dl>
+      </article>
+
+      <article class="case">
+        <header><span class="sector">Automotive</span><h3>Jaguar Land Rover</h3><em>2023 to 2024 · Centre of excellence · Value stream design · Tooling · Capability building</em></header>
+        <dl>
+          <dt>Challenge</dt><dd>Digital teams were organised around projects rather than value, with limited data on throughput to guide prioritisation.</dd>
+          <dt>What we did</dt><dd>Established the Lean Agile Centre of Excellence and reorganised teams around value streams. Implemented Jira with an integrated SharePoint demand portal. Launched the JLR One App Agile Release Train, trained Scrum Masters and Product Owners, and built role-based coaching canvases and a PO/PM Centre of Excellence.</dd>
+          <dt>Results</dt><dd><ul><li>20% uplift in speed to market</li><li>Accurate throughput data and better prioritisation</li><li>JLR One App ART launched</li></ul></dd>
+          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We connected the operating model to the tooling, with Jira, a SharePoint demand portal and value streams set up together, so leaders could see throughput for the first time and act on it.</dd>
+        </dl>
+      </article>
+
+      <article class="case">
+        <header><span class="sector">Telecoms · Cyber security</span><h3>Vodafone Cyber Security</h3><em>2021 to 2023 · Lean Portfolio Management · Release train services · DevSecOps · Communities of practice</em></header>
+        <dl>
+          <dt>Challenge</dt><dd>Implement SAFe and Lean Portfolio Management across Cyber Security, with all work traceable to strategy and a security-first culture.</dd>
+          <dt>What we did</dt><dd>Launched a Lean Agile Centre of Excellence with its own microsite, identified value streams and launched Agile Release Trains, and moved from PMO to APMO governance. Migrated departments to Azure DevOps with Power BI reporting, provided the Release Train Engineer service and ran PI Planning, set up communities of practice for RTEs, Scrum Masters and Product Owners, and embedded DevSecOps standards.</dd>
+          <dt>Results</dt><dd><ul><li>8 Agile Release Trains launched and 8 PI Planning events run</li><li>500+ people onboarded to one tool</li><li>DevSecOps culture rolled out to 10,000 employees, reducing vulnerabilities</li><li>10+ internal processes improved; a community of 30+ RTEs and Scrum Masters</li></ul></dd>
+          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We provided coaching, governance and the Release Train Engineer service as one team, running 8 PI Plannings, and built security into the way of working rather than bolting it on afterwards.</dd>
+        </dl>
+      </article>
+
+      <article class="case">
+        <header><span class="sector">Telecoms · Data and cloud</span><h3>Vodafone Group</h3><em>2019 to 2021 · Programme delivery · Cloud migration · Agile adoption and training</em></header>
+        <dl>
+          <dt>Challenge</dt><dd>Migrate and host a suite of next-generation SAP and BI products on Google Cloud for European markets, on an ambitious timeline.</dd>
+          <dt>What we did</dt><dd>Introduced agile ways of working, set up Scrum cadence and Scrum of Scrums, trained 70+ people including internal Scrum Masters, Product Owners and managers, and led the move to Essential SAFe.</dd>
+          <dt>Results</dt><dd><ul><li>Fastest cloud platform implementation in Vodafone Group; first live GCP implementation</li><li>SAP S/4HANA migration on time and within budget</li><li>30% shorter delivery timelines and 80% uplift in BI product availability across EU markets</li><li>Budget secured for a full SAFe implementation</li></ul></dd>
+          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We proved agile on one of Vodafone Group's most ambitious cloud programmes first, then used the results to win budget for SAFe, so the case for change came from delivery, not a slide deck.</dd>
+        </dl>
+      </article>
+
+      <article class="case">
+        <header><span class="sector">Government</span><h3>Department for Education</h3><em>2021 · Portfolio assessment · Lean Portfolio Management plan</em></header>
+        <dl>
+          <dt>Challenge</dt><dd>Improve an existing Portfolio SAFe implementation and introduce Lean Portfolio Management.</dd>
+          <dt>What we did</dt><dd>Reviewed the implementation against the SAFe core competencies and wrote the Lean Portfolio Management implementation plan, defining governance, funding and prioritisation, with a plan to implement it in steps.</dd>
+          <dt>Results</dt><dd><ul><li>A clear, incremental plan for portfolio governance and funding</li></ul></dd>
+          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We bring Lean Portfolio Management plans written by someone who has run them in live organisations, so the plan was built to be implemented in steps rather than all at once.</dd>
+        </dl>
+      </article>
+
+      <article class="case">
+        <header><span class="sector">Government</span><h3>HM Revenue &amp; Customs</h3><em>2018 to 2019 · Cloud migration delivery · DevOps · Production support model</em></header>
+        <dl>
+          <dt>Challenge</dt><dd>Move trading systems to AWS for Brexit readiness, and give the Messaging Delivery Group's APIs reliable round-the-clock support.</dd>
+          <dt>What we did</dt><dd>Delivered the AWS migration with Scrum and Kanban teams, prepared PI Planning with the client's release train, led DevOps adoption in the middleware team, and designed and launched a 24/7, 365-day production support model using Kanban.</dd>
+          <dt>Results</dt><dd><ul><li>AWS migration delivered for Brexit readiness</li><li>15% reduction in operational risk</li><li>Production support function and DevSecOps model established</li></ul></dd>
+          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We combined delivery to a hard Brexit deadline with lasting change: the AWS migration landed, and the 24/7 support and DevOps model stayed after we left.</dd>
+        </dl>
+      </article>
+
+      <article class="case">
+        <header><span class="sector">Insurance and services</span><h3>Domestic &amp; General</h3><em>2018 to 2019 · Agile pilot · Product delivery · Governance redesign</em></header>
+        <dl>
+          <dt>Challenge</dt><dd>Prove that agile ways of working could deliver pricing optimisation, integrating DataRobot and Earnix software.</dd>
+          <dt>What we did</dt><dd>Piloted agile ways of working, set up Scrum teams, coached internal Scrum Masters to take over, and worked with the PMO on a streamlined approvals process suited to agile delivery.</dd>
+          <dt>Results</dt><dd><ul><li>£4m forecast return over the following 12 months</li><li>60% faster time to market</li><li>Elasticity model saved about £200k</li><li>Approval lead times cut by 8 days</li></ul></dd>
+          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We measured agile in money: a £4m forecast return and a £200k saving, and we changed the PMO approvals process with the PMO so the new way of working lasted.</dd>
+        </dl>
+      </article>
+
+      <article class="case">
+        <header><span class="sector">Higher education</span><h3>King's College London</h3><em>2016 to 2017 · Transformation · Team launch · Training</em></header>
+        <dl>
+          <dt>Challenge</dt><dd>An agile transformation had stalled without expert support, and the platform needed stabilising after earlier data loss.</dd>
+          <dt>What we did</dt><dd>Launched five Scrum teams across Digital, Client Platform, Collaboration and Identity, Compute and Storage, and Data Centre Services, with training for teams and senior leaders.</dd>
+          <dt>Results</dt><dd><ul><li>The first self-organising Scrum teams in the college's history</li><li>75% reduction in platform risk</li><li>Web portal delivered for King's Business School, the biggest faculty launch in 40 years</li></ul></dd>
+          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We restarted a stalled transformation by launching five teams at once and delivering a major launch through them, so the value of agile was visible to senior leaders straight away.</dd>
+        </dl>
+      </article>
+
+      <article class="case">
+        <header><span class="sector">Logistics software</span><h3>DA Systems</h3><em>2016 · Team set-up · MVP delivery</em></header>
+        <dl>
+          <dt>Challenge</dt><dd>Rebuild a transport management system for courier companies on Azure and move the company to agile delivery.</dd>
+          <dt>What we did</dt><dd>Set up a new Scrum team, coached colleagues new to agile, and delivered the SaaS MVP.</dd>
+          <dt>Results</dt><dd><ul><li>MVP delivered</li><li>Customers up 30% in three months</li></ul></dd>
+          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We set up the team, coached the company and shipped the product in the same engagement, showing results in customers rather than in reports.</dd>
+        </dl>
+      </article>
+
+      <article class="case">
+        <header><span class="sector">Telecoms · Digital</span><h3>Three UK</h3><em>2015 to 2016 · Digital product delivery</em></header>
+        <dl>
+          <dt>Challenge</dt><dd>Deliver digital initiatives, campaigns and enablers, mostly through the Three mobile app.</dd>
+          <dt>What we did</dt><dd>Led delivery teams on an automated phone diagnostics tool, automated price building, a friends and family voucher scheme and a refer-a-friend programme.</dd>
+          <dt>Results</dt><dd><ul><li>Phone diagnostics tool with an estimated £2.5m saving</li><li>In-app upgrades enabled for the first time</li><li>Awarded best online iPhone execution in the UK</li></ul></dd>
+          <dt class="edge">The Agile Elite difference</dt><dd class="edge">Our team brings front-line retail and customer experience knowledge into digital delivery, so app features were shaped around how customers actually buy and get support.</dd>
+        </dl>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="stack">
+    <span class="eyebrow">How an engagement runs</span>
+    <ol class="steps">
+      <li><h3>Assess</h3><p>Map how demand, funding and delivery flow today, and where value is lost.</p></li>
+      <li><h3>Design</h3><p>Agree the target operating model: front door, roles, governance and measures.</p></li>
+      <li><h3>Prove</h3><p>Run it with a first set of teams and measure the benefit.</p></li>
+      <li><h3>Scale and hand over</h3><p>Roll it out across the organisation with training and communities of practice, then hand over or keep running it for you. In healthcare, DelPulse packages the whole model and platform.</p></li>
+    </ol>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Tell us what you need to deliver.</h2>
+    <p>Send a few lines about your organisation and we will set up an intro call.</p>
+    <div class="mail"><code id="email">admin@agileelite.org</code><button type="button" id="copy">Copy email</button><span id="copied" aria-live="polite"></span></div>
+  </section>
+</div>
+</main>
+
+<footer><div class="wrap">
+  <span>Agile Elite Ltd, registered in England and Wales. VAT registered.</span>
+  <span>© 2026 Agile Elite Ltd</span>
+</div></footer>
+
+<script>
+const pages=["home","products","work-with-us"];
+const anchors={"contact":"work-with-us","case-studies":"work-with-us","delpulse-detail":"products","fitb-detail":"products","undeniably-detail":"products"};
+function show(){
+  const h=location.hash.slice(1);
+  const id=pages.includes(h)?h:(anchors[h]||"home");
+  pages.forEach(p=>document.getElementById(p).hidden=p!==id);
+  document.querySelectorAll("nav a").forEach(a=>a.dataset.page===id?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
+  if(anchors[h]) document.getElementById(h).scrollIntoView(); else window.scrollTo(0,0);
+}
+addEventListener("hashchange",show);show();
+document.getElementById("copy").addEventListener("click",()=>{
+  const t=document.getElementById("email").textContent,out=document.getElementById("copied");
+  navigator.clipboard.writeText(t).then(()=>out.textContent="Copied").catch(()=>{
+    const r=document.createRange();r.selectNodeContents(document.getElementById("email"));
+    const s=getSelection();s.removeAllRanges();s.addRange(r);out.textContent="Selected, press Ctrl+C";});
+});
+</script>
+</body>
+</html>
