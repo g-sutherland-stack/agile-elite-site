@@ -205,6 +205,34 @@ svg.ic.ic-amber>rect{fill:#f5a623}
 svg.ic.ic-navy>rect{fill:var(--navy)}
 svg.ic.ic-blue>rect{fill:var(--accent)}
 svg.ic g rect{fill:none}
+.cs-filter{display:flex;flex-wrap:wrap;gap:8px}
+.cs-filter button{font:600 .9rem var(--body);border:2px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:8px 16px;cursor:pointer}
+.cs-filter button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.cases2{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr))}
+.cs{background:var(--surface);border-radius:8px;box-shadow:var(--shadow);padding:28px;display:flex;flex-direction:column;gap:14px;min-width:0;border-top:4px solid var(--cyan)}
+.cs-f{grid-column:1/-1;border-top-color:var(--accent);padding:36px}
+.cs-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.cs .sector{font:600 .75rem var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.cs-when{font:500 .8rem var(--body);color:var(--muted)}
+.cs-client{font:700 1rem var(--display);color:var(--muted)}
+.cs h3{font-size:1.45rem;line-height:1.2}
+.cs-f h3{font-size:clamp(1.6rem,2.6vw,2.1rem)}
+.kpis{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));background:var(--bg-soft);border-radius:8px;padding:18px}
+.kpis div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.kpis b{font:800 2rem/1 var(--display);color:var(--accent);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.cs-f .kpis b{font-size:2.6rem}
+.kpis span{font-size:.85rem;color:var(--muted)}
+.cs-body{display:grid;gap:18px}
+.cs-f .cs-body{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+@media (max-width:820px){.cs-f .cs-body{grid-template-columns:1fr}}
+.cs h4{font:700 .78rem var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--fg);margin:0 0 6px}
+.cs-body p,.cs-body li{color:var(--muted)}
+.cs-body ul{margin:0;padding-left:1.1rem;display:grid;gap:4px}
+.cs-body li::marker{color:var(--accent)}
+.cs-edge{background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:4px;padding:12px 14px;color:var(--fg)}
+.cs-edge strong{display:block;font:700 .78rem var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.cs-svc{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.cs-svc span{font:500 .8rem var(--body);background:var(--chip);color:var(--fg);border-radius:4px;padding:4px 9px}
 </style>
 </head>
 <body>
@@ -404,129 +432,178 @@ svg.ic g rect{fill:none}
         <li><strong>Capability that stays</strong><span>Playbooks, communities of practice, training and self-assessments leave your people able to run it themselves.</span></li>
       </ul>
     </div>
-    <div class="cases">
-
-      <article class="case">
-        <header><span class="sector">Healthcare · NHS</span><h3>East Midlands Acute Providers</h3><em>2026 to present · Operating model design · Product delivery · Portfolio governance · Benefits realisation</em></header>
-        <p class="badge"><span aria-hidden="true">✓</span> Recognised by Atlassian as a verified solution, built specifically to deliver healthcare product change safely and improve operational and financial efficiency.</p>
-        <dl>
-          <dt>Challenge</dt><dd>EPR optimisation requests arrived through spreadsheets, emails and meetings, with no single view of demand, priority or benefit across the trusts.</dd>
-          <dt>What we did</dt><dd>Designed and implemented a product operating model: one intake front door, owned backlogs, value-based prioritisation on clinical safety, operational and financial impact, two-weekly sprints and governance through to benefits realisation. Led product teams for PAS, Clinical Documentation, Urgent &amp; Emergency Care and EPMA, built the investment case and 12-month scaling roadmap, and designed shared EMAP portfolio governance so solutions are built once and reused.</dd>
-          <dt>Results</dt><dd><ul><li>183 optimisation items delivered</li><li>About 27,000 staff hours a year released (£597k productivity equivalent)</li><li>Projected £1.1m a year per trust, a 146% return on annual investment</li><li>848 requests in one prioritised backlog; monthly intake grew from 8 to 47</li><li>Proven at University Hospitals of Leicester and Northamptonshire, scaling to 8 trusts</li><li>Recognised by Atlassian as a verified solution</li></ul></dd>
-          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We designed the operating model and then ran the product teams ourselves, so the model was proven on live EPR work before it scaled. Every item was measured in staff hours and pounds, and the approach is now packaged as DelPulse so all 8 trusts can adopt it without starting again.</dd>
-        </dl>
+    <div class="cs-filter" role="group" aria-label="Filter case studies by sector">
+      <button type="button" data-f="all" aria-pressed="true">All</button><button type="button" data-f="health" aria-pressed="false">Healthcare</button><button type="button" data-f="telecoms" aria-pressed="false">Telecoms</button><button type="button" data-f="gov" aria-pressed="false">Government</button><button type="button" data-f="auto" aria-pressed="false">Automotive</button><button type="button" data-f="other" aria-pressed="false">Other sectors</button>
+    </div>
+    <div class="cases2">
+      <article class="cs cs-f" data-sec="health">
+        <div class="cs-top"><span class="sector">Healthcare · NHS</span><span class="cs-when">2026 to present</span></div>
+        <p class="cs-client">East Midlands Acute Providers (NHS)</p>
+        <h3>From 848 scattered requests to one product operating model across 8 NHS trusts</h3>
+        <p class="badge"><span aria-hidden="true">✓</span> Recognised by Atlassian as a verified solution for healthcare product change.</p>
+        <div class="kpis"><div><b>£1.1m</b><span>yearly benefit projected per trust</span></div><div><b>27,000</b><span>staff hours released a year</span></div><div><b>146%</b><span>return on annual investment</span></div></div>
+        <div class="cs-body">
+          <div><h4>Challenge</h4><p>EPR improvement requests arrived by spreadsheet, email and meeting. Nobody could see total demand, what mattered most, or what each change was worth.</p></div>
+          <div><h4>Approach</h4><p>We designed the product operating model and then ran it: one front door for demand, owned backlogs, prioritisation on clinical safety, operational and financial impact, two-weekly sprints and benefits tracking. We led the PAS, Clinical Documentation, Urgent &amp; Emergency Care and EPMA product teams, built the investment case and the shared EMAP governance.</p></div>
+          <div><h4>Impact</h4><ul><li>183 optimisation items delivered</li><li>848 requests in one prioritised backlog; monthly intake up from 8 to 47</li><li>Proven at Leicester and Northamptonshire, now scaling to all 8 trusts</li></ul></div>
+        </div>
+        <p class="cs-edge"><strong>The Agile Elite difference</strong>We designed the model and ran the teams, so it was proven on live EPR work before it scaled. It is now packaged as DelPulse, so every trust can adopt it without starting again.</p>
+        <div class="cs-svc"><span>Operating model design</span><span>Product delivery</span><span>Portfolio governance</span><span>Benefits realisation</span></div>
       </article>
-
-      <article class="case">
-        <header><span class="sector">Healthcare · Private</span><h3>Spire Healthcare</h3><em>2024 to 2026 · Target operating model · Transformation · Programme delivery · Service introduction</em></header>
-        <dl>
-          <dt>Challenge</dt><dd>A new digital strategy needed IT to work with the business in new ways, delivering value sooner while protecting patient safety.</dd>
-          <dt>What we did</dt><dd>Designed a Scaled Agile target operating model built on eight value streams aligned to patient, partner and colleague journeys, with platform teams, new product and delivery roles, a Strategic Management Office and one portfolio backlog in Azure DevOps. Wrote and launched the IT Ways of Working Playbook, introduced WSJF and backlog governance and facilitated PI Planning. Then led delivery across Pathology and Radiology, including the WinPath LIMS introduction with Clinisys and the PACS upgrade.</dd>
-          <dt>Results</dt><dd><ul><li>Work traced from OKR to Epic, Feature and Story in one tool</li><li>15 to 25% CT/MRI utilisation opportunity identified through booking and scheduling redesign</li><li>Standardised workflows across sites and fewer admin-driven delays</li><li>Better data traceability, reporting and audit readiness</li></ul></dd>
-          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We designed the target operating model, wrote the playbook, and then stayed to lead delivery through LIMS and PACS. The same people who drew the model made it work with clinical leads, vendors and operations.</dd>
-        </dl>
+      <article class="cs cs-f" data-sec="health">
+        <div class="cs-top"><span class="sector">Healthcare · Private</span><span class="cs-when">2024 to 2026</span></div>
+        <p class="cs-client">Spire Healthcare</p>
+        <h3>A value-stream operating model for a national hospital group</h3>
+        
+        <div class="kpis"><div><b>8</b><span>value streams aligned to patient journeys</span></div><div><b>1</b><span>portfolio backlog from OKR to story</span></div><div><b>15–25%</b><span>CT/MRI utilisation opportunity found</span></div></div>
+        <div class="cs-body">
+          <div><h4>Challenge</h4><p>A new digital strategy needed IT to work with the business in new ways and deliver value sooner, without compromising patient safety.</p></div>
+          <div><h4>Approach</h4><p>We designed a Scaled Agile target operating model with the client team: long-lived value streams, platform teams, new product and delivery roles, a Strategic Management Office and one backlog in Azure DevOps. We wrote the IT Ways of Working Playbook, introduced WSJF and PI Planning, then led delivery across Pathology and Radiology, including the WinPath LIMS introduction and the PACS upgrade.</p></div>
+          <div><h4>Impact</h4><ul><li>Work traced from strategic OKR to delivery in one tool</li><li>Standardised workflows across sites and fewer admin delays</li><li>Better data traceability, reporting and audit readiness</li></ul></div>
+        </div>
+        <p class="cs-edge"><strong>The Agile Elite difference</strong>The team that drew the model stayed to deliver LIMS and PACS with clinical leads, vendors and operations, so the model was tested on real clinical change.</p>
+        <div class="cs-svc"><span>Target operating model</span><span>Ways of working playbook</span><span>Programme delivery</span><span>Service introduction</span></div>
       </article>
-
-      <article class="case">
-        <header><span class="sector">Technology consultancy</span><h3>Seven Four Digital</h3><em>2024 · Portfolio tooling implementation</em></header>
-        <dl>
-          <dt>Challenge</dt><dd>IBM and Apptio enterprise clients needed portfolio tooling that connected strategy, funding and delivery.</dd>
-          <dt>What we did</dt><dd>Implemented Apptio TargetProcess for enterprise clients, configuring it around their portfolio, governance and prioritisation.</dd>
-          <dt>Results</dt><dd><ul><li>Better portfolio visibility, governance and prioritisation for each client</li></ul></dd>
-          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We bring hands-on portfolio tooling experience from inside large enterprises, so the tool was set up around how portfolios really run, not just how the software ships.</dd>
-        </dl>
+      <article class="cs cs-f" data-sec="telecoms">
+        <div class="cs-top"><span class="sector">Telecoms · Cyber security</span><span class="cs-when">2021 to 2023</span></div>
+        <p class="cs-client">Vodafone Cyber Security</p>
+        <h3>Security-first portfolio management for 10,000 people</h3>
+        
+        <div class="kpis"><div><b>8</b><span>Agile Release Trains launched</span></div><div><b>10,000</b><span>employees on DevSecOps standards</span></div><div><b>500+</b><span>people moved onto one tool</span></div></div>
+        <div class="cs-body">
+          <div><h4>Challenge</h4><p>Cyber Security needed SAFe and Lean Portfolio Management, with every piece of work traceable to strategy and security built in from the start.</p></div>
+          <div><h4>Approach</h4><p>We launched a Lean Agile Centre of Excellence, mapped value streams and launched release trains, and moved from PMO to APMO governance. We migrated departments to Azure DevOps with Power BI reporting, ran 8 PI Planning events and set up communities of practice for RTEs, Scrum Masters and Product Owners.</p></div>
+          <div><h4>Impact</h4><ul><li>Fewer security vulnerabilities through embedded DevSecOps</li><li>10+ internal processes improved</li><li>A community of 30+ RTEs and Scrum Masters</li></ul></div>
+        </div>
+        <p class="cs-edge"><strong>The Agile Elite difference</strong>Coaching, governance and the Release Train Engineer service came from one team, and security was part of the way of working rather than bolted on.</p>
+        <div class="cs-svc"><span>Lean Portfolio Management</span><span>Release train services</span><span>DevSecOps</span><span>Communities of practice</span></div>
       </article>
-
-      <article class="case">
-        <header><span class="sector">Automotive</span><h3>Jaguar Land Rover</h3><em>2023 to 2024 · Centre of excellence · Value stream design · Tooling · Capability building</em></header>
-        <dl>
-          <dt>Challenge</dt><dd>Digital teams were organised around projects rather than value, with limited data on throughput to guide prioritisation.</dd>
-          <dt>What we did</dt><dd>Established the Lean Agile Centre of Excellence and reorganised teams around value streams. Implemented Jira with an integrated SharePoint demand portal. Launched the JLR One App Agile Release Train, trained Scrum Masters and Product Owners, and built role-based coaching canvases and a PO/PM Centre of Excellence.</dd>
-          <dt>Results</dt><dd><ul><li>20% uplift in speed to market</li><li>Accurate throughput data and better prioritisation</li><li>JLR One App ART launched</li></ul></dd>
-          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We connected the operating model to the tooling, with Jira, a SharePoint demand portal and value streams set up together, so leaders could see throughput for the first time and act on it.</dd>
-        </dl>
+      <article class="cs cs-f" data-sec="auto">
+        <div class="cs-top"><span class="sector">Automotive</span><span class="cs-when">2023 to 2024</span></div>
+        <p class="cs-client">Jaguar Land Rover</p>
+        <h3>Organising digital delivery around value</h3>
+        
+        <div class="kpis"><div><b>20%</b><span>faster speed to market</span></div><div><b>1</b><span>Lean Agile Centre of Excellence</span></div><div><b>1</b><span>new release train for the JLR One App</span></div></div>
+        <div class="cs-body">
+          <div><h4>Challenge</h4><p>Digital teams were organised around projects rather than value, with little throughput data to guide what to do next.</p></div>
+          <div><h4>Approach</h4><p>We set up the Lean Agile Centre of Excellence, reorganised teams around value streams, and implemented Jira with an integrated SharePoint demand portal. We launched the JLR One App release train, trained Scrum Masters and Product Owners, and built a PO/PM Centre of Excellence with role-based coaching canvases.</p></div>
+          <div><h4>Impact</h4><ul><li>Accurate throughput data for the first time</li><li>Better prioritisation from a single demand portal</li><li>Stronger product capability through the PO/PM Centre of Excellence</li></ul></div>
+        </div>
+        <p class="cs-edge"><strong>The Agile Elite difference</strong>We changed the operating model and the tooling together, so leaders could see throughput and act on it straight away.</p>
+        <div class="cs-svc"><span>Centre of excellence</span><span>Value stream design</span><span>Tooling</span><span>Capability building</span></div>
       </article>
-
-      <article class="case">
-        <header><span class="sector">Telecoms · Cyber security</span><h3>Vodafone Cyber Security</h3><em>2021 to 2023 · Lean Portfolio Management · Release train services · DevSecOps · Communities of practice</em></header>
-        <dl>
-          <dt>Challenge</dt><dd>Implement SAFe and Lean Portfolio Management across Cyber Security, with all work traceable to strategy and a security-first culture.</dd>
-          <dt>What we did</dt><dd>Launched a Lean Agile Centre of Excellence with its own microsite, identified value streams and launched Agile Release Trains, and moved from PMO to APMO governance. Migrated departments to Azure DevOps with Power BI reporting, provided the Release Train Engineer service and ran PI Planning, set up communities of practice for RTEs, Scrum Masters and Product Owners, and embedded DevSecOps standards.</dd>
-          <dt>Results</dt><dd><ul><li>8 Agile Release Trains launched and 8 PI Planning events run</li><li>500+ people onboarded to one tool</li><li>DevSecOps culture rolled out to 10,000 employees, reducing vulnerabilities</li><li>10+ internal processes improved; a community of 30+ RTEs and Scrum Masters</li></ul></dd>
-          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We provided coaching, governance and the Release Train Engineer service as one team, running 8 PI Plannings, and built security into the way of working rather than bolting it on afterwards.</dd>
-        </dl>
+      <article class="cs" data-sec="telecoms">
+        <div class="cs-top"><span class="sector">Telecoms · Data and cloud</span><span class="cs-when">2019 to 2021</span></div>
+        <p class="cs-client">Vodafone Group</p>
+        <h3>The fastest cloud platform implementation in Vodafone Group</h3>
+        
+        <div class="kpis"><div><b>30%</b><span>shorter delivery timelines</span></div><div><b>80%</b><span>uplift in BI availability across EU markets</span></div></div>
+        <div class="cs-body">
+          <div><h4>Challenge</h4><p>Move SAP and BI platforms to Google Cloud for European markets on an ambitious timeline.</p></div>
+          <div><h4>Approach</h4><p>We introduced agile ways of working, trained 70+ people and led the move to Essential SAFe.</p></div>
+          <div><h4>Impact</h4><ul><li>First live Google Cloud implementation in Vodafone Group</li><li>SAP S/4HANA migration on time and on budget</li><li>Budget secured for a full SAFe roll-out</li></ul></div>
+        </div>
+        <p class="cs-edge"><strong>The Agile Elite difference</strong>We proved agile on a flagship programme first, so the case for change came from delivery, not slides.</p>
+        <div class="cs-svc"><span>Programme delivery</span><span>Cloud migration</span><span>Agile adoption</span></div>
       </article>
-
-      <article class="case">
-        <header><span class="sector">Telecoms · Data and cloud</span><h3>Vodafone Group</h3><em>2019 to 2021 · Programme delivery · Cloud migration · Agile adoption and training</em></header>
-        <dl>
-          <dt>Challenge</dt><dd>Migrate and host a suite of next-generation SAP and BI products on Google Cloud for European markets, on an ambitious timeline.</dd>
-          <dt>What we did</dt><dd>Introduced agile ways of working, set up Scrum cadence and Scrum of Scrums, trained 70+ people including internal Scrum Masters, Product Owners and managers, and led the move to Essential SAFe.</dd>
-          <dt>Results</dt><dd><ul><li>Fastest cloud platform implementation in Vodafone Group; first live GCP implementation</li><li>SAP S/4HANA migration on time and within budget</li><li>30% shorter delivery timelines and 80% uplift in BI product availability across EU markets</li><li>Budget secured for a full SAFe implementation</li></ul></dd>
-          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We proved agile on one of Vodafone Group's most ambitious cloud programmes first, then used the results to win budget for SAFe, so the case for change came from delivery, not a slide deck.</dd>
-        </dl>
+      <article class="cs" data-sec="other">
+        <div class="cs-top"><span class="sector">Insurance and services</span><span class="cs-when">2018 to 2019</span></div>
+        <p class="cs-client">Domestic &amp; General</p>
+        <h3>Proving agile in pounds: a £4m forecast return</h3>
+        
+        <div class="kpis"><div><b>£4m</b><span>forecast return in 12 months</span></div><div><b>60%</b><span>faster time to market</span></div></div>
+        <div class="cs-body">
+          <div><h4>Challenge</h4><p>Prove that agile could deliver pricing optimisation with DataRobot and Earnix.</p></div>
+          <div><h4>Approach</h4><p>We piloted agile ways of working, set up Scrum teams and redesigned approvals with the PMO.</p></div>
+          <div><h4>Impact</h4><ul><li>Elasticity model saved about £200k</li><li>Approval lead times cut by 8 days</li></ul></div>
+        </div>
+        <p class="cs-edge"><strong>The Agile Elite difference</strong>We measured agile in money and changed governance with the PMO, so it lasted.</p>
+        <div class="cs-svc"><span>Agile pilot</span><span>Product delivery</span><span>Governance redesign</span></div>
       </article>
-
-      <article class="case">
-        <header><span class="sector">Government</span><h3>Department for Education</h3><em>2021 · Portfolio assessment · Lean Portfolio Management plan</em></header>
-        <dl>
-          <dt>Challenge</dt><dd>Improve an existing Portfolio SAFe implementation and introduce Lean Portfolio Management.</dd>
-          <dt>What we did</dt><dd>Reviewed the implementation against the SAFe core competencies and wrote the Lean Portfolio Management implementation plan, defining governance, funding and prioritisation, with a plan to implement it in steps.</dd>
-          <dt>Results</dt><dd><ul><li>A clear, incremental plan for portfolio governance and funding</li></ul></dd>
-          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We bring Lean Portfolio Management plans written by someone who has run them in live organisations, so the plan was built to be implemented in steps rather than all at once.</dd>
-        </dl>
+      <article class="cs" data-sec="gov">
+        <div class="cs-top"><span class="sector">Government</span><span class="cs-when">2018 to 2019</span></div>
+        <p class="cs-client">HM Revenue &amp; Customs</p>
+        <h3>Brexit-ready trading systems on AWS</h3>
+        
+        <div class="kpis"><div><b>15%</b><span>lower operational risk</span></div><div><b>24/7</b><span>production support model</span></div></div>
+        <div class="cs-body">
+          <div><h4>Challenge</h4><p>Move trading systems to AWS for Brexit and give key APIs round-the-clock support.</p></div>
+          <div><h4>Approach</h4><p>We delivered the migration with Scrum and Kanban teams, led DevOps adoption and launched a 24/7 support model.</p></div>
+          <div><h4>Impact</h4><ul><li>AWS migration delivered for Brexit readiness</li><li>Production support and DevSecOps model in place</li></ul></div>
+        </div>
+        <p class="cs-edge"><strong>The Agile Elite difference</strong>We hit a fixed national deadline and left a support model that stayed.</p>
+        <div class="cs-svc"><span>Cloud migration</span><span>DevOps</span><span>Production support</span></div>
       </article>
-
-      <article class="case">
-        <header><span class="sector">Government</span><h3>HM Revenue &amp; Customs</h3><em>2018 to 2019 · Cloud migration delivery · DevOps · Production support model</em></header>
-        <dl>
-          <dt>Challenge</dt><dd>Move trading systems to AWS for Brexit readiness, and give the Messaging Delivery Group's APIs reliable round-the-clock support.</dd>
-          <dt>What we did</dt><dd>Delivered the AWS migration with Scrum and Kanban teams, prepared PI Planning with the client's release train, led DevOps adoption in the middleware team, and designed and launched a 24/7, 365-day production support model using Kanban.</dd>
-          <dt>Results</dt><dd><ul><li>AWS migration delivered for Brexit readiness</li><li>15% reduction in operational risk</li><li>Production support function and DevSecOps model established</li></ul></dd>
-          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We combined delivery to a hard Brexit deadline with lasting change: the AWS migration landed, and the 24/7 support and DevOps model stayed after we left.</dd>
-        </dl>
+      <article class="cs" data-sec="gov">
+        <div class="cs-top"><span class="sector">Government</span><span class="cs-when">2021</span></div>
+        <p class="cs-client">Department for Education</p>
+        <h3>A Lean Portfolio Management plan built to be implemented</h3>
+        
+        
+        <div class="cs-body">
+          <div><h4>Challenge</h4><p>Improve an existing Portfolio SAFe set-up and introduce Lean Portfolio Management.</p></div>
+          <div><h4>Approach</h4><p>We assessed the set-up against SAFe&#x27;s core competencies and wrote the implementation plan for governance, funding and prioritisation.</p></div>
+          <div><h4>Impact</h4><ul><li>A clear, step-by-step plan for portfolio governance and funding</li></ul></div>
+        </div>
+        <p class="cs-edge"><strong>The Agile Elite difference</strong>The plan came from people who run portfolios, so it was designed to be delivered in stages.</p>
+        <div class="cs-svc"><span>Portfolio assessment</span><span>Lean Portfolio Management</span></div>
       </article>
-
-      <article class="case">
-        <header><span class="sector">Insurance and services</span><h3>Domestic &amp; General</h3><em>2018 to 2019 · Agile pilot · Product delivery · Governance redesign</em></header>
-        <dl>
-          <dt>Challenge</dt><dd>Prove that agile ways of working could deliver pricing optimisation, integrating DataRobot and Earnix software.</dd>
-          <dt>What we did</dt><dd>Piloted agile ways of working, set up Scrum teams, coached internal Scrum Masters to take over, and worked with the PMO on a streamlined approvals process suited to agile delivery.</dd>
-          <dt>Results</dt><dd><ul><li>£4m forecast return over the following 12 months</li><li>60% faster time to market</li><li>Elasticity model saved about £200k</li><li>Approval lead times cut by 8 days</li></ul></dd>
-          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We measured agile in money: a £4m forecast return and a £200k saving, and we changed the PMO approvals process with the PMO so the new way of working lasted.</dd>
-        </dl>
+      <article class="cs" data-sec="other">
+        <div class="cs-top"><span class="sector">Higher education</span><span class="cs-when">2016 to 2017</span></div>
+        <p class="cs-client">King&#x27;s College London</p>
+        <h3>Restarting a stalled transformation</h3>
+        
+        <div class="kpis"><div><b>5</b><span>Scrum teams launched</span></div><div><b>75%</b><span>less platform risk</span></div></div>
+        <div class="cs-body">
+          <div><h4>Challenge</h4><p>An agile transformation had stalled, and the platform needed stabilising after data loss.</p></div>
+          <div><h4>Approach</h4><p>We launched five Scrum teams across digital and infrastructure, with training for teams and leaders.</p></div>
+          <div><h4>Impact</h4><ul><li>The college&#x27;s first self-organising Scrum teams</li><li>Portal delivered for the King&#x27;s Business School launch</li></ul></div>
+        </div>
+        <p class="cs-edge"><strong>The Agile Elite difference</strong>We showed value fast by delivering a major launch through the new teams.</p>
+        <div class="cs-svc"><span>Transformation</span><span>Team launch</span><span>Training</span></div>
       </article>
-
-      <article class="case">
-        <header><span class="sector">Higher education</span><h3>King's College London</h3><em>2016 to 2017 · Transformation · Team launch · Training</em></header>
-        <dl>
-          <dt>Challenge</dt><dd>An agile transformation had stalled without expert support, and the platform needed stabilising after earlier data loss.</dd>
-          <dt>What we did</dt><dd>Launched five Scrum teams across Digital, Client Platform, Collaboration and Identity, Compute and Storage, and Data Centre Services, with training for teams and senior leaders.</dd>
-          <dt>Results</dt><dd><ul><li>The first self-organising Scrum teams in the college's history</li><li>75% reduction in platform risk</li><li>Web portal delivered for King's Business School, the biggest faculty launch in 40 years</li></ul></dd>
-          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We restarted a stalled transformation by launching five teams at once and delivering a major launch through them, so the value of agile was visible to senior leaders straight away.</dd>
-        </dl>
+      <article class="cs" data-sec="telecoms">
+        <div class="cs-top"><span class="sector">Telecoms · Digital</span><span class="cs-when">2015 to 2016</span></div>
+        <p class="cs-client">Three UK</p>
+        <h3>Award-winning app delivery</h3>
+        
+        <div class="kpis"><div><b>£2.5m</b><span>estimated saving from phone diagnostics</span></div></div>
+        <div class="cs-body">
+          <div><h4>Challenge</h4><p>Deliver digital initiatives and campaigns, mostly through the Three app.</p></div>
+          <div><h4>Approach</h4><p>We led teams delivering phone diagnostics, automated pricing, vouchers and refer-a-friend.</p></div>
+          <div><h4>Impact</h4><ul><li>In-app upgrades enabled for the first time</li><li>Best online iPhone execution in the UK</li></ul></div>
+        </div>
+        <p class="cs-edge"><strong>The Agile Elite difference</strong>Front-line retail and customer experience knowledge shaped every feature.</p>
+        <div class="cs-svc"><span>Digital product delivery</span></div>
       </article>
-
-      <article class="case">
-        <header><span class="sector">Logistics software</span><h3>DA Systems</h3><em>2016 · Team set-up · MVP delivery</em></header>
-        <dl>
-          <dt>Challenge</dt><dd>Rebuild a transport management system for courier companies on Azure and move the company to agile delivery.</dd>
-          <dt>What we did</dt><dd>Set up a new Scrum team, coached colleagues new to agile, and delivered the SaaS MVP.</dd>
-          <dt>Results</dt><dd><ul><li>MVP delivered</li><li>Customers up 30% in three months</li></ul></dd>
-          <dt class="edge">The Agile Elite difference</dt><dd class="edge">We set up the team, coached the company and shipped the product in the same engagement, showing results in customers rather than in reports.</dd>
-        </dl>
+      <article class="cs" data-sec="other">
+        <div class="cs-top"><span class="sector">Logistics software</span><span class="cs-when">2016</span></div>
+        <p class="cs-client">DA Systems</p>
+        <h3>From new team to live SaaS product</h3>
+        
+        <div class="kpis"><div><b>30%</b><span>more customers in three months</span></div></div>
+        <div class="cs-body">
+          <div><h4>Challenge</h4><p>Rebuild a courier transport management system on Azure and move to agile delivery.</p></div>
+          <div><h4>Approach</h4><p>We set up a Scrum team, coached colleagues new to agile and delivered the MVP.</p></div>
+          <div><h4>Impact</h4><ul><li>SaaS MVP delivered</li></ul></div>
+        </div>
+        <p class="cs-edge"><strong>The Agile Elite difference</strong>Team set-up, coaching and delivery in one engagement, measured in customers.</p>
+        <div class="cs-svc"><span>Team set-up</span><span>MVP delivery</span></div>
       </article>
-
-      <article class="case">
-        <header><span class="sector">Telecoms · Digital</span><h3>Three UK</h3><em>2015 to 2016 · Digital product delivery</em></header>
-        <dl>
-          <dt>Challenge</dt><dd>Deliver digital initiatives, campaigns and enablers, mostly through the Three mobile app.</dd>
-          <dt>What we did</dt><dd>Led delivery teams on an automated phone diagnostics tool, automated price building, a friends and family voucher scheme and a refer-a-friend programme.</dd>
-          <dt>Results</dt><dd><ul><li>Phone diagnostics tool with an estimated £2.5m saving</li><li>In-app upgrades enabled for the first time</li><li>Awarded best online iPhone execution in the UK</li></ul></dd>
-          <dt class="edge">The Agile Elite difference</dt><dd class="edge">Our team brings front-line retail and customer experience knowledge into digital delivery, so app features were shaped around how customers actually buy and get support.</dd>
-        </dl>
+      <article class="cs" data-sec="other">
+        <div class="cs-top"><span class="sector">Technology consultancy</span><span class="cs-when">2024</span></div>
+        <p class="cs-client">Seven Four Digital</p>
+        <h3>Portfolio tooling for IBM and Apptio clients</h3>
+        
+        
+        <div class="cs-body">
+          <div><h4>Challenge</h4><p>Enterprise clients needed portfolio tooling that linked strategy, funding and delivery.</p></div>
+          <div><h4>Approach</h4><p>We implemented Apptio TargetProcess around each client&#x27;s portfolio and governance.</p></div>
+          <div><h4>Impact</h4><ul><li>Better portfolio visibility, governance and prioritisation</li></ul></div>
+        </div>
+        <p class="cs-edge"><strong>The Agile Elite difference</strong>Set up around how portfolios really run, from experience inside large enterprises.</p>
+        <div class="cs-svc"><span>Portfolio tooling</span></div>
       </article>
-
     </div>
   </section>
 
@@ -570,6 +647,12 @@ document.getElementById("copy").addEventListener("click",()=>{
     const r=document.createRange();r.selectNodeContents(document.getElementById("email"));
     const s=getSelection();s.removeAllRanges();s.addRange(r);out.textContent="Selected, press Ctrl+C";});
 });
+
+document.querySelectorAll('.cs-filter button').forEach(b=>b.addEventListener('click',()=>{
+  const f=b.dataset.f;
+  document.querySelectorAll('.cs-filter button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+  document.querySelectorAll('.cases2 .cs').forEach(c=>{c.hidden=!(f==='all'||c.dataset.sec===f)});
+}));
 </script>
 </body>
 </html>
